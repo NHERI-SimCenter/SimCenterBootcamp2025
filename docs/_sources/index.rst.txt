@@ -6,18 +6,19 @@ this year's **offering will be solely online**.  Expect to collaborate with
 students from across the globe and enjoy the opportunity to make new friends
 at unexpected places.
 
-**The format** of the course this year **has changed** from previous offerings.
-This year, the workshop is a **one week** intensive course of online instruction.
-The course is split evenly into **Python** (M-T-W) and **C/C++** (W-Th-F).
-The participants
-will be asked to review video material before the workshop.
-Each day, the material presented in those videos will
-be reviewed **briefly** before example programs are developed from scratch.
+The format of the course this year has changed from last year’s offering.
+The workshop is now split into two one-week modules: one focused on **Python**,
+and the other on **C/C++**. These weeks are separated by a short break to give
+participants time to reflect and recharge!
+
+Participants will be asked to review video material in advance of the workshop.
+Each day, the content from those videos will be briefly reviewed before
+example programs are developed live from scratch.
 
 
 .. note::
    
-   It is **intense**. While instruction is limited to six hours a day, expect to spend a few extra hours daily working on assignments if you intend to get anything worthwhile from the courses.
+   This course is **intense**. While instruction is limited to a few hours a day, expect to spend a few extra hours daily working on assignments if you intend to get anything worthwhile from the courses.
 
 
 
