@@ -4,9 +4,9 @@ Syllabus
 
 .. raw:: HTML
 
-	<p><font color=red> last updated: June 6, 2024 </font></p>
+	<p><font color=red> last updated: April 14, 2025 </font></p>
 
-Welcome to the SimCenter Programming Bootcamp 2024.
+Welcome to the SimCenter Programming Bootcamp 2025.
 Following the success of our online version of this workshop,
 this year's **offering will be solely online**.
 
@@ -37,7 +37,7 @@ The two workshops are offered as individual or as one combined workshop as follo
    e.g. have completed the Python workshop. It ends writing parallel programs using threads and message passing on a HPC.
 
 	    
-Python - July 29-31, 2024, 2.5 days
+Python - June 16-20, 5 days
 -----------------------------------
 
 * Session 1
@@ -93,11 +93,10 @@ Python - July 29-31, 2024, 2.5 days
   * Team coding competition/exercise: collaborative tasks for groups of 3-5 people
   * Closing Remarks
 
-
-Introduction to C/C++/HPC - July 31 - Aug 2, 2024, 2.5 days
+Introduction to C/C++/HPC - July 28 - Aug 1, 5 days
 -----------------------------------------------------------
 
-* Session 1: `Basic C <https://github.com/NHERI-SimCenter/SimCenterBootcamp2024/blob/master/Presentations/C-Session1.pdf>`_
+* Session 1: `Basic C <https://github.com/NHERI-SimCenter/SimCenterBootcamp2025/blob/master/Presentations/C-Session1.pdf>`_
   
   * Computers and Computer Programs
   * The C Computer Programming Language
@@ -107,30 +106,29 @@ Introduction to C/C++/HPC - July 31 - Aug 2, 2024, 2.5 days
   * Assign Homework C #1
     
 
-* Session 2: `Pointers, Memory & Files <https://github.com/NHERI-SimCenter/SimCenterBootcamp2024/blob/master/Presentations/C-Session2.pdf>`_
+* Session 2: `Pointers, Memory & Files <https://github.com/NHERI-SimCenter/SimCenterBootcamp2025/blob/master/Presentations/C-Session2.pdf>`_
   
   * C: Pointers Review
   * C: Memory Allocation
   * C: File I/O
 
-* * Session 3: `Datatypes & Abstraction <https://github.com/NHERI-SimCenter/SimCenterBootcamp2024/blob/master/Presentations/C-Session3.pdf>`_
+* * Session 3: `Datatypes & Abstraction <https://github.com/NHERI-SimCenter/SimCenterBootcamp2025/blob/master/Presentations/C-Session3.pdf>`_
   
   * C: User Defined Datatypes
   * C: Data Abstraction    
 
 
-* Session 4: `Object Oriented Programming & C++ <https://github.com/NHERI-SimCenter/SimCenterBootcamp2024/blob/master/Presentations/C-Session4.pdf>`_
+* Session 4: `Object Oriented Programming & C++ <https://github.com/NHERI-SimCenter/SimCenterBootcamp2025/blob/master/Presentations/C-Session4.pdf>`_
 
   * Object Oriented Programming
   * C++
   * C++ Example
   * Assign Homework C #2
 
-* Session 5: `Parallel Programming & MPI <https://github.com/NHERI-SimCenter/SimCenterBootcamp2024/blob/master/Presentations/C-Session5.pdf>`_
+* Session 5: `Parallel Programming & MPI <https://github.com/NHERI-SimCenter/SimCenterBootcamp2025/blob/master/Presentations/C-Session5.pdf>`_
 
   * Parallel Computers  
   * MessagePassing & MPI
-  * SharedMemory & Threads
     
 
   
