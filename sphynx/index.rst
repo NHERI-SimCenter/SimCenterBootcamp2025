@@ -1,4 +1,4 @@
-Welcome to the NHERI-SimCenter 2024 Programming Bootcamp
+Welcome to the NHERI-SimCenter 2025 Programming Bootcamp
 ========================================================
 
 Following the success of our online version of this workshop,
@@ -25,7 +25,7 @@ The outline of the  workshop is follows.
 
 1. Python Workshop
 
-   * **July 29-31, 2024, 2.5 days**
+   * **June 16-20, 2025, 4 hours per day over 5 days**
 
    The first part of the Python training is geared towards beginner and intermediate level material.
    In it we will cover the basic concepts of python, as well as fundamentals of code design.
@@ -36,7 +36,7 @@ The outline of the  workshop is follows.
    
 2. C/C++/HPC Workshop 
 
-   * **July 31 - Aug 2, 2024, 2.5 days**
+   * **July 28 - Aug 1, 2025, 3 hours per day over 5 days**
 
    The second half of this bootcamp is all done on a HPC target environment. We will start by
    reviewing coding basiscs in C and C++, but quickly transitioning to the fundamentals of
@@ -49,7 +49,7 @@ The outline of the  workshop is follows.
 .. note::
 
    Course material is available through 
-   the `NHERI-SimCenter/SimCenterBootcamp2024 <https://github.com/NHERI-SimCenter/SimCenterBootcamp2024>`_
+   the `NHERI-SimCenter/SimCenterBootcamp2025 <https://github.com/NHERI-SimCenter/SimCenterBootcamp2025>`_
    repository on https://github.com 
 
    You will need your own GitHub account and DesignSafe accounts to participate in our exercises.
