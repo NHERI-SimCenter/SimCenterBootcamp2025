@@ -1,0 +1,16 @@
+ress transformation
+void stressTransformation(double sigma_x, double sigma_y, double tau_xy, double theta, double *sigma_x_prime, double *sigma_y_prime, double *tau_x_y_prime) {
+  // Convert angle from degrees to radians
+  double theta_rad = theta * M_PI / 180.0;
+
+  // Calculate cos(2*theta) and sin(2*theta)
+  double cos2theta = cos(2.0 * theta_rad);
+  double sin2theta = sin(2.0 * theta_rad);
+
+  // Calculate transformed normal stresses
+  *sigma_x_prime = (sigma_x + sigma_y) / 2.0 + (sigma_x - sigma_y) / 2.0 * cos2theta + tau_xy * sin2theta;
+  *sigma_y_prime = (sigma_x + sigma_y) / 2.0 - (sigma_x - sigma_y) / 2.0 * cos2theta - tau_xy * sin2theta;
+
+  // Calculate transformed shear stress
+  *tau_x_y_prime = -(sigma_x - sigma_y) / 2.0 * sin2theta + tau_xy * cos2theta;
+}
