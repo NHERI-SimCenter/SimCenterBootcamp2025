@@ -15,6 +15,7 @@ Participants will be asked to review video material in advance of the workshop.
 Each day, the content from those videos will be briefly reviewed before
 example programs are developed live from scratch.
 
+To register, please click the `registration link <https://na.eventscloud.com/2025programmingbootcamp>`_.
 
 .. note::
    
