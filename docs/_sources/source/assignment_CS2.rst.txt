@@ -118,3 +118,11 @@ The **small.txt** file is as shown below.
 .. note::
    
    Give some thought as to how you would open the file and read back in the two vectors. If you have some time, write a program to do and have that program write the contents of the binary files to a csv file.
+
+Problem 3: Reading from a binary file and using the data
+--------------------------------------------------------
+
+In the directory **binaryMatMul** is the singular file **matrix.bin**. This is a binary file containing an integer giving the size of the matrix, i.e. **n**. Following this is the contents of the n*n matrix output in **column-major order**. You are to write code that reads the matrix **A** and computes C = A*A. Output **C** to another file and print out the sum of all components of the matrix **C** to compare with the others doing the assignment.
+
+
+   

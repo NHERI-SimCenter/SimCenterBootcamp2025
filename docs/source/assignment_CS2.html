@@ -55,10 +55,11 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">C: Assignments Session 2</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#problem-1-dgemm">Problem 1: DGEMM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problem-2-reading-from-a-csv-file-memory-allocation-writing-to-binary">Problem 2: Reading From a CSV file, Memory Allocation &amp; Writing to Binary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-3-reading-from-a-binary-file-and-using-the-data">Problem 3: Reading from a binary file and using the data</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="assignment_CS3.html">C: Assignments Session 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="assignment_C3.html">C: Assignments Session 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignment_C3.html">C: Assignments Session 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
@@ -312,6 +313,10 @@ especially for projects provided by somebody else.</p>
 <p class="admonition-title">Note</p>
 <p>Give some thought as to how you would open the file and read back in the two vectors. If you have some time, write a program to do and have that program write the contents of the binary files to a csv file.</p>
 </div>
+</section>
+<section id="problem-3-reading-from-a-binary-file-and-using-the-data">
+<h2>Problem 3: Reading from a binary file and using the data<a class="headerlink" href="#problem-3-reading-from-a-binary-file-and-using-the-data" title="Link to this heading"></a></h2>
+<p>In the directory <strong>binaryMatMul</strong> is the singular file <strong>matrix.bin</strong>. This is a binary file containing an integer giving the size of the matrix, i.e. <strong>n</strong>. Following this is the contents of the n*n matrix output in <strong>column-major order</strong>. You are to write code that reads the matrix <strong>A</strong> and computes C = A*A. Output <strong>C</strong> to another file and print out the sum of all components of the matrix <strong>C</strong> to compare with the others doing the assignment.</p>
 </section>
 </section>
 

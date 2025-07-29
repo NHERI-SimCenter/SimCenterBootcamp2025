@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C: Assignments Session 4 &mdash; Programming Bootcamp 2025  documentation</title>
+  <title>C: Assignments Session 3 &mdash; Programming Bootcamp 2025  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=079b110e" />
@@ -53,7 +53,8 @@
 <li class="toctree-l2"><a class="reference internal" href="assignment_C1.html">C: Session 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="assignment_CS2.html">C: Assignments Session 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="assignment_CS3.html">C: Assignments Session 3</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">C: Assignments Session 4</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">C: Assignments Session 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#problem-2-using-structures">Problem 2: Using structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problem-1-lets-switch-to-c-syntax">Problem 1: Lets switch to C++ syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problem-2-adding-a-coloredshape">Problem 2: Adding a ColoredShape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problem-3-an-engineering-vector-class-requires-you-to-finish-off">Problem 3: An engineering Vector Class requires you to finish off</a></li>
@@ -84,7 +85,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="assignments.html">Assignments</a></li>
-      <li class="breadcrumb-item active">C: Assignments Session 4</li>
+      <li class="breadcrumb-item active">C: Assignments Session 3</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/source/assignment_C3.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,9 +95,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="c-assignments-session-4">
-<h1>C: Assignments Session 4<a class="headerlink" href="#c-assignments-session-4" title="Link to this heading"></a></h1>
+  <section id="c-assignments-session-3">
+<h1>C: Assignments Session 3<a class="headerlink" href="#c-assignments-session-3" title="Link to this heading"></a></h1>
 <p>More problems for you to tackle.</p>
+<section id="problem-2-using-structures">
+<h2>Problem 2: Using structures<a class="headerlink" href="#problem-2-using-structures" title="Link to this heading"></a></h2>
+<p>The implementation of <code class="code docutils literal notranslate"><span class="pre">StressTransform()</span></code> was intentionally done a bit clumsy, just the way a beginner might
+write it. Your task in this exercise is to create a structure</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+        <span class="n">double</span> <span class="n">sigx</span><span class="p">;</span>
+        <span class="n">double</span> <span class="n">sigy</span><span class="p">;</span>
+        <span class="n">double</span> <span class="n">tau</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">STRESS</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>and modify the code from the previous exercise to utilize the much easier to read data structure provided
+by this <code class="code docutils literal notranslate"><span class="pre">struct</span></code>.  Use the code skeleton provided in <strong>/assignments/C_Day2/stressTransformationStruct</strong> to develop that
+code.  The included <code class="code docutils literal notranslate"><span class="pre">CMakeList.txt</span></code> shall be used to compile your code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your modified <code class="code docutils literal notranslate"><span class="pre">StressTransform(...)</span></code> will require a pointer to a <code class="code docutils literal notranslate"><span class="pre">STRESS</span></code> type object.  The
+way to achieve that in an efficient manner is to use a <code class="code docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">struct</span> <span class="pre">{...}</span> <span class="pre">STRESS</span> <span class="pre">;</span></code>.</p>
+<p>In addition, inside the function that receives the pointer to a structure, assigning a new value to
+entries in such a structure requires the syntax</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">StressTransform</span><span class="p">(</span><span class="n">STRESS</span> <span class="n">stressIn</span><span class="p">,</span> <span class="n">STRESS</span> <span class="o">*</span><span class="n">stressOut</span><span class="p">,</span> <span class="o">....</span><span class="p">)</span> <span class="p">{</span>
+  <span class="o">...</span>
+  <span class="n">stressIn</span><span class="o">-&gt;</span><span class="n">sigx</span> <span class="o">=</span> <span class="o">...</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This replaces the form</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">sigx</span> <span class="o">=</span> <span class="o">...</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>used for scalar-valued arguments.</p>
+</div>
+</section>
 <section id="problem-1-lets-switch-to-c-syntax">
 <h2>Problem 1: Lets switch to C++ syntax<a class="headerlink" href="#problem-1-lets-switch-to-c-syntax" title="Link to this heading"></a></h2>
 <p>Navigate to <strong>/code/c++/ExerciseDay3/ex1/</strong> to find the code for this C++ exerise. This code is the solution to yesterdays last assignment. It compiles with both a <strong>C</strong> and a <strong>C++</strong> compiler. The task is to replace the standard C lib functions for memory and output, e.g functions like malloc(), with the standard C++ functions, e.g. new().</p>

@@ -1,8 +1,50 @@
-C: Assignments Session 4
+C: Assignments Session 3
 ========================
 
-
 More problems for you to tackle.
+
+Problem 2: Using structures
+---------------------------
+
+The implementation of :code:`StressTransform()` was intentionally done a bit clumsy, just the way a beginner might
+write it. Your task in this exercise is to create a structure 
+
+.. code::
+
+	typedef struct {
+		double sigx;
+		double sigy;
+		double tau;
+	} STRESS ;
+
+and modify the code from the previous exercise to utilize the much easier to read data structure provided
+by this :code:`struct`.  Use the code skeleton provided in **/assignments/C_Day2/stressTransformationStruct** to develop that
+code.  The included :code:`CMakeList.txt` shall be used to compile your code.
+
+.. note::
+
+   Your modified :code:`StressTransform(...)` will require a pointer to a :code:`STRESS` type object.  The
+   way to achieve that in an efficient manner is to use a :code:`typedef struct {...} STRESS ;`.
+
+   In addition, inside the function that receives the pointer to a structure, assigning a new value to
+   entries in such a structure requires the syntax
+
+   .. code::
+
+      void StressTransform(STRESS stressIn, STRESS *stressOut, ....) {
+	...
+	stressIn->sigx = ... ;
+      }
+
+   This replaces the form
+
+   .. code::
+
+      *sigx = ... ;
+
+   used for scalar-valued arguments.
+
+
 
 Problem 1: Lets switch to C++ syntax
 ------------------------------------
