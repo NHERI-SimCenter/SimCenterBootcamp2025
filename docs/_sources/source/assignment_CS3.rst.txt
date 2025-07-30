@@ -2,14 +2,13 @@ C: Assignments Session 3
 ========================
 
 
-Some more problems for you to tackle. Parts should look and feel familiar from first session, though we will add more features as we go.
+Today we play with typdef, struct and linked lists.
 
 
-Problem 1: Using structures
----------------------------
+Problem 1: User define STRESS type
+----------------------------------
 
-The implementation of :code:`StressTransform()` was intentionally done a bit clumsy, just the way a beginner might
-write it. Your task in this exercise is to create a structure 
+In the directory **assignments/C-Session3/stressTransformStruct** are three files (main.cpp stresstransform.h and stresstransform.c) that perform the transformation a hard-coded stress (12.0,-5.5,3.0) by a hard-coded angle (10.0 degrees). Change the files to use the following user defined STRESS type:
 
 .. code::
 
@@ -19,23 +18,18 @@ write it. Your task in this exercise is to create a structure
 		double tau;
 	} STRESS ;
 
-and modify the code from the previous exercise to utilize the much easier to read data structure provided
-by this :code:`struct`.  Use the code skeleton provided in **/assignments/C_Session3/stressTransformationStruct** to develop that
-code.  The included :code:`CMakeList.txt` shall be used to compile your code.
+
+The included :code:`CMakeList.txt` can be used to compile your code.
 
 .. note::
 
-   Your modified :code:`StressTransform(...)` will require a pointer to a :code:`STRESS` type object.  The
-   way to achieve that in an efficient manner is to use a :code:`typedef struct stress {...} STRESS ;`.
-
-   In addition, inside the function that receives the pointer to a structure, assigning a new value to
-   entries in such a structure requires the syntax   
+   Your modified :code:`StressTransform(...)` will require a pointer to a :code:`STRESS` type object so that the type can be modified as C is pass by value. Inside the function that receives the pointer to a structure, assigning a new value to the variables in such a structure requires the syntax   
 
    .. code::
 
-      void StressTransform(STRESS stressIn, STRESS *stressOut, ....) {
+      void StressTransform(STRESS stressIn, STRESS *stressOut, double theta) {
 	...
-	stressIn->sigx = ... ;
+	stressOut->sigx =  stressIn.sigX .... ;
       }
 
    This replaces the form
@@ -47,103 +41,74 @@ code.  The included :code:`CMakeList.txt` shall be used to compile your code.
    used for scalar-valued arguments.
 
    
-
-
 Problem 2: Writing data for use by other programs: CSV
------------------------------------------------------
+------------------------------------------------------
 
-While C is very powerful for numeric computations, it can be impractical to generate graphs or fancy
-images using the computed values.  A more efficient way is to use C to do the analysis, write results to
-an easily readable file, and use specialized tools for the post-processing.  One common and simple format
-is **CSV** (comma-separated-values), which van be read easily by MATLAB, python, or Excel.  
+While C is very powerful for numeric computations, it can be painful to generate graphs or fancy
+images in a C program. **Not impossible, just painful!** A simpler way to generate graphs and look at
+the outputs is to use C to do the numerical computations, then have the C application write the results
+to an easily readable file, and use specialized tools for the post-processing.  One common and simple format
+is **CSV** (comma-separated-values), which can be read easily by MATLAB, Python, or Excel.  
 
 
-**Your task**: modify the code given in **/assignments/C-Session3/stressTransformFile/ex2-3/** to
-
-1. Take one argument :math:`\Delta\theta` in degrees after the name of the executable, defining the increment at
-which transformed stress values shall be written:
-
-.. code::
-
-	$ Exercise2-3 5.0
-
-The format of the output shall be for one angle per line, organized as follows:
-
+**Your task**: Copy the code you just created to a new directory and modify it. Have the user to the application provide an argument such that the argument :math:`\Delta\theta`. Then we want the application to ouput all values of the transfomed stress from 0 through 180 using this :math:`\Delta\theta`. The format of the output shall be one angle per line, organized as follows:
 
 .. code::
 
 	theta, sigma_x, sigma_y, tau_xy
 	...
 
-Output shall commence until an angle of :math:`180^\circ` has been reached or exceeded.
-
-Once your code outputs the information, run it once more and save the results to a file names
-**list.csv** (make sure to add the spaces around the '>')
+Once your code outputs the information, run it once more and save the results to a file named
+**list.csv** . You can make that modification in the code or an easier way is to **direct** the program output to a file using the following (make sure to add the spaces around the '>')
 
 .. code::
 
-	$ Exercise2-3 5.0 > list.csv
+	$ ./appName 5.0 > list.csv
+
 
 .. note::
-
-      We have changed the definition of a STRESS variable. It now include a pointer. We are asking you for each degree to create a new variable using malloc, determine its values using the stressTransofrm function, and add it to the results list.
-      
-      .. code::
-
-	   typedef struct stress {
-	         	double sigx;
-		        double sigy;
-		        double tau;
-			struct stress *next;
-	   } STRESS ;
-
-       We have changes the use
-.. note::
-
 
 	
     You may want to download the file **list.csv** to your local computer before trying the next step, for it
     will require access to your display.  That file can be opened in Excel and plotted there.  A more
-    efficient way is to prepare some nice plotting code, such as the provided :code:`plotter.py`.  In the same
+    efficient way is to prepare some nice plotting code, such as the provided :code:`plotterCSV.py`.  In the same
     folder where you placed **list.csv** run
 
     **Windows 10**
 
     .. code::
 
-	    >> python.exe plotter.py
+	    >> python.exe plotterCSV.py
 
 
     **MacOS** or **Linux**
 
     .. code::
 
-	    $ python3 plotter.py
+	    $ python3 plotterCSV.py
 	    
-    Isn't that nice?
+Problem 3: Use a List data structure & Write to binary file
+----------------------------------------------------------
+
+Copy the previous solution into a new directory. Modify the code to do the following:
+
+1. Keep the intermediate values of stress around. (Can't thinkl of a valid reason why, but this is a programming exercise!) Do this by changing the definition of the STRESS type to include a pointer and store the values in a **linked list**, with the first element being the original stress value, and subsequent ones being new STRESS objects created with new.
+
+   .. code::
+
+      typedef struct stress {
+         double sigx;
+         double sigy;
+         double tau;
+	 struct stress *next;
+      } STRESS ;
    
-
-
-Problem 3: Writing to a binary file
------------------------------------
-
-Modify the code generated in the previous exercise to write a binary file named *mohrcircle.dta* instead
-of the formatted ASCII data.  The data shall be exported in clocks composed of :code:`double theta`
-followed by a block of :code:`STRESS` (or the three components of stress as :code:`double`).
-
-You may be working of your code or use the provided code skeleton in **/assignments/C-Session3/stressTensorFile/ex2-4**.
-
-This time, your code should be totally silent on execution.  The only sign of success will be the creation
-of the data file. For the next steps, run your program with the following parameters:
-
-.. code::
-
-	$ Exercise2-4 5.0
+2. When done, loop over the linked list and output the results to a binary file.
 
 
 .. note::
 
-    How large do you expect the binary file to be?  Discuss, predicts, and check using
+    How large do you expect the binary file to be?  Predict, and check using
 
     .. code::
 
@@ -154,21 +119,7 @@ of the data file. For the next steps, run your program with the following parame
 
 .. note::
 
-    This problem comes with validation code, something worth developing every time you are working on
-    software that will be modified over an extended period of time and/or by multiple people.
-
-    The validation consists of (1) a C code :code:`parse.c` which reads the binary file and outputs its
-    contents to a **CSV** file, and (2) a shell script :code:`validate.sh` that attempts to run the
-    validation code and compares the output generated from your binary file to an output generated by a
-    correct code.
-
-    Run the validation script as
-
-    .. code::
-
-	$ sh ./validate.sh
-
-    and check its feedback. (That script may not run on all platforms.)
+     There is another file **parse.c** that will open the contents of the binary file and print out a **csv** file. Use it to compare the output with your original file from the previous exercise. The **parse.c** just keeps reading bunches of 3 double values until it reaches the end, so there is no need to output the number of stress values at the start of the output file.
     
 .. note::
 

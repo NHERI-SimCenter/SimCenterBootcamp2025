@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="C: Assignments Session 3" href="assignment_C3.html" />
+    <link rel="next" title="Git" href="git.html" />
     <link rel="prev" title="C: Assignments Session 2" href="assignment_CS2.html" /> 
 </head>
 
@@ -54,12 +54,11 @@
 <li class="toctree-l2"><a class="reference internal" href="assignment_C1.html">C: Session 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="assignment_CS2.html">C: Assignments Session 2</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">C: Assignments Session 3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#problem-1-using-structures">Problem 1: Using structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-1-user-define-stress-type">Problem 1: User define STRESS type</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problem-2-writing-data-for-use-by-other-programs-csv">Problem 2: Writing data for use by other programs: CSV</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#problem-3-writing-to-a-binary-file">Problem 3: Writing to a binary file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-3-use-a-list-data-structure-write-to-binary-file">Problem 3: Use a List data structure &amp; Write to binary file</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="assignment_C3.html">C: Assignments Session 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
@@ -97,11 +96,10 @@
              
   <section id="c-assignments-session-3">
 <h1>C: Assignments Session 3<a class="headerlink" href="#c-assignments-session-3" title="Link to this heading"></a></h1>
-<p>Some more problems for you to tackle. Parts should look and feel familiar from first session, though we will add more features as we go.</p>
-<section id="problem-1-using-structures">
-<h2>Problem 1: Using structures<a class="headerlink" href="#problem-1-using-structures" title="Link to this heading"></a></h2>
-<p>The implementation of <code class="code docutils literal notranslate"><span class="pre">StressTransform()</span></code> was intentionally done a bit clumsy, just the way a beginner might
-write it. Your task in this exercise is to create a structure</p>
+<p>Today we play with typdef, struct and linked lists.</p>
+<section id="problem-1-user-define-stress-type">
+<h2>Problem 1: User define STRESS type<a class="headerlink" href="#problem-1-user-define-stress-type" title="Link to this heading"></a></h2>
+<p>In the directory <strong>assignments/C-Session3/stressTransformStruct</strong> are three files (main.cpp stresstransform.h and stresstransform.c) that perform the transformation a hard-coded stress (12.0,-5.5,3.0) by a hard-coded angle (10.0 degrees). Change the files to use the following user defined STRESS type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="n">stress</span> <span class="p">{</span>
         <span class="n">double</span> <span class="n">sigx</span><span class="p">;</span>
         <span class="n">double</span> <span class="n">sigy</span><span class="p">;</span>
@@ -109,18 +107,13 @@ write it. Your task in this exercise is to create a structure</p>
 <span class="p">}</span> <span class="n">STRESS</span> <span class="p">;</span>
 </pre></div>
 </div>
-<p>and modify the code from the previous exercise to utilize the much easier to read data structure provided
-by this <code class="code docutils literal notranslate"><span class="pre">struct</span></code>.  Use the code skeleton provided in <strong>/assignments/C_Session3/stressTransformationStruct</strong> to develop that
-code.  The included <code class="code docutils literal notranslate"><span class="pre">CMakeList.txt</span></code> shall be used to compile your code.</p>
+<p>The included <code class="code docutils literal notranslate"><span class="pre">CMakeList.txt</span></code> can be used to compile your code.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Your modified <code class="code docutils literal notranslate"><span class="pre">StressTransform(...)</span></code> will require a pointer to a <code class="code docutils literal notranslate"><span class="pre">STRESS</span></code> type object.  The
-way to achieve that in an efficient manner is to use a <code class="code docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">struct</span> <span class="pre">stress</span> <span class="pre">{...}</span> <span class="pre">STRESS</span> <span class="pre">;</span></code>.</p>
-<p>In addition, inside the function that receives the pointer to a structure, assigning a new value to
-entries in such a structure requires the syntax</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">StressTransform</span><span class="p">(</span><span class="n">STRESS</span> <span class="n">stressIn</span><span class="p">,</span> <span class="n">STRESS</span> <span class="o">*</span><span class="n">stressOut</span><span class="p">,</span> <span class="o">....</span><span class="p">)</span> <span class="p">{</span>
+<p>Your modified <code class="code docutils literal notranslate"><span class="pre">StressTransform(...)</span></code> will require a pointer to a <code class="code docutils literal notranslate"><span class="pre">STRESS</span></code> type object so that the type can be modified as C is pass by value. Inside the function that receives the pointer to a structure, assigning a new value to the variables in such a structure requires the syntax</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">StressTransform</span><span class="p">(</span><span class="n">STRESS</span> <span class="n">stressIn</span><span class="p">,</span> <span class="n">STRESS</span> <span class="o">*</span><span class="n">stressOut</span><span class="p">,</span> <span class="n">double</span> <span class="n">theta</span><span class="p">)</span> <span class="p">{</span>
   <span class="o">...</span>
-  <span class="n">stressIn</span><span class="o">-&gt;</span><span class="n">sigx</span> <span class="o">=</span> <span class="o">...</span> <span class="p">;</span>
+  <span class="n">stressOut</span><span class="o">-&gt;</span><span class="n">sigx</span> <span class="o">=</span>  <span class="n">stressIn</span><span class="o">.</span><span class="n">sigX</span> <span class="o">....</span> <span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -133,72 +126,56 @@ entries in such a structure requires the syntax</p>
 </section>
 <section id="problem-2-writing-data-for-use-by-other-programs-csv">
 <h2>Problem 2: Writing data for use by other programs: CSV<a class="headerlink" href="#problem-2-writing-data-for-use-by-other-programs-csv" title="Link to this heading"></a></h2>
-<p>While C is very powerful for numeric computations, it can be impractical to generate graphs or fancy
-images using the computed values.  A more efficient way is to use C to do the analysis, write results to
-an easily readable file, and use specialized tools for the post-processing.  One common and simple format
-is <strong>CSV</strong> (comma-separated-values), which van be read easily by MATLAB, python, or Excel.</p>
-<p><strong>Your task</strong>: modify the code given in <strong>/assignments/C-Session3/stressTransformFile/ex2-3/</strong> to</p>
-<p>1. Take one argument <span class="math notranslate nohighlight">\(\Delta\theta\)</span> in degrees after the name of the executable, defining the increment at
-which transformed stress values shall be written:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ Exercise2-3 5.0
-</pre></div>
-</div>
-<p>The format of the output shall be for one angle per line, organized as follows:</p>
+<p>While C is very powerful for numeric computations, it can be painful to generate graphs or fancy
+images in a C program. <strong>Not impossible, just painful!</strong> A simpler way to generate graphs and look at
+the outputs is to use C to do the numerical computations, then have the C application write the results
+to an easily readable file, and use specialized tools for the post-processing.  One common and simple format
+is <strong>CSV</strong> (comma-separated-values), which can be read easily by MATLAB, Python, or Excel.</p>
+<p><strong>Your task</strong>: Copy the code you just created to a new directory and modify it. Have the user to the application provide an argument such that the argument <span class="math notranslate nohighlight">\(\Delta\theta\)</span>. Then we want the application to ouput all values of the transfomed stress from 0 through 180 using this <span class="math notranslate nohighlight">\(\Delta\theta\)</span>. The format of the output shall be one angle per line, organized as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">tau_xy</span>
 <span class="o">...</span>
 </pre></div>
 </div>
-<p>Output shall commence until an angle of <span class="math notranslate nohighlight">\(180^\circ\)</span> has been reached or exceeded.</p>
-<p>Once your code outputs the information, run it once more and save the results to a file names
-<strong>list.csv</strong> (make sure to add the spaces around the ‘&gt;’)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ Exercise2-3 5.0 &gt; list.csv
+<p>Once your code outputs the information, run it once more and save the results to a file named
+<strong>list.csv</strong> . You can make that modification in the code or an easier way is to <strong>direct</strong> the program output to a file using the following (make sure to add the spaces around the ‘&gt;’)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./appName 5.0 &gt; list.csv
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We have changed the definition of a STRESS variable. It now include a pointer. We are asking you for each degree to create a new variable using malloc, determine its values using the stressTransofrm function, and add it to the results list.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">typedef</span> <span class="n">struct</span> <span class="n">stress</span> <span class="p">{</span>
-                 <span class="n">double</span> <span class="n">sigx</span><span class="p">;</span>
-                 <span class="n">double</span> <span class="n">sigy</span><span class="p">;</span>
-                 <span class="n">double</span> <span class="n">tau</span><span class="p">;</span>
-                 <span class="n">struct</span> <span class="n">stress</span> <span class="o">*</span><span class="nb">next</span><span class="p">;</span>
-    <span class="p">}</span> <span class="n">STRESS</span> <span class="p">;</span>
-
-<span class="n">We</span> <span class="n">have</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">use</span>
-</pre></div>
-</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You may want to download the file <strong>list.csv</strong> to your local computer before trying the next step, for it
 will require access to your display.  That file can be opened in Excel and plotted there.  A more
-efficient way is to prepare some nice plotting code, such as the provided <code class="code docutils literal notranslate"><span class="pre">plotter.py</span></code>.  In the same
+efficient way is to prepare some nice plotting code, such as the provided <code class="code docutils literal notranslate"><span class="pre">plotterCSV.py</span></code>.  In the same
 folder where you placed <strong>list.csv</strong> run</p>
 <p><strong>Windows 10</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">plotter</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">plotterCSV</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p><strong>MacOS</strong> or <strong>Linux</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 plotter.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 plotterCSV.py
 </pre></div>
 </div>
-<p>Isn’t that nice?</p>
 </div>
 </section>
-<section id="problem-3-writing-to-a-binary-file">
-<h2>Problem 3: Writing to a binary file<a class="headerlink" href="#problem-3-writing-to-a-binary-file" title="Link to this heading"></a></h2>
-<p>Modify the code generated in the previous exercise to write a binary file named <em>mohrcircle.dta</em> instead
-of the formatted ASCII data.  The data shall be exported in clocks composed of <code class="code docutils literal notranslate"><span class="pre">double</span> <span class="pre">theta</span></code>
-followed by a block of <code class="code docutils literal notranslate"><span class="pre">STRESS</span></code> (or the three components of stress as <code class="code docutils literal notranslate"><span class="pre">double</span></code>).</p>
-<p>You may be working of your code or use the provided code skeleton in <strong>/assignments/C-Session3/stressTensorFile/ex2-4</strong>.</p>
-<p>This time, your code should be totally silent on execution.  The only sign of success will be the creation
-of the data file. For the next steps, run your program with the following parameters:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ Exercise2-4 5.0
+<section id="problem-3-use-a-list-data-structure-write-to-binary-file">
+<h2>Problem 3: Use a List data structure &amp; Write to binary file<a class="headerlink" href="#problem-3-use-a-list-data-structure-write-to-binary-file" title="Link to this heading"></a></h2>
+<p>Copy the previous solution into a new directory. Modify the code to do the following:</p>
+<ol class="arabic">
+<li><p>Keep the intermediate values of stress around. (Can’t thinkl of a valid reason why, but this is a programming exercise!) Do this by changing the definition of the STRESS type to include a pointer and store the values in a <strong>linked list</strong>, with the first element being the original stress value, and subsequent ones being new STRESS objects created with new.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="n">stress</span> <span class="p">{</span>
+   <span class="n">double</span> <span class="n">sigx</span><span class="p">;</span>
+   <span class="n">double</span> <span class="n">sigy</span><span class="p">;</span>
+   <span class="n">double</span> <span class="n">tau</span><span class="p">;</span>
+   <span class="n">struct</span> <span class="n">stress</span> <span class="o">*</span><span class="nb">next</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">STRESS</span> <span class="p">;</span>
 </pre></div>
 </div>
+</li>
+<li><p>When done, loop over the linked list and output the results to a binary file.</p></li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>How large do you expect the binary file to be?  Discuss, predicts, and check using</p>
+<p>How large do you expect the binary file to be?  Predict, and check using</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -l mohrcircle.dta
 </pre></div>
 </div>
@@ -206,17 +183,7 @@ of the data file. For the next steps, run your program with the following parame
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This problem comes with validation code, something worth developing every time you are working on
-software that will be modified over an extended period of time and/or by multiple people.</p>
-<p>The validation consists of (1) a C code <code class="code docutils literal notranslate"><span class="pre">parse.c</span></code> which reads the binary file and outputs its
-contents to a <strong>CSV</strong> file, and (2) a shell script <code class="code docutils literal notranslate"><span class="pre">validate.sh</span></code> that attempts to run the
-validation code and compares the output generated from your binary file to an output generated by a
-correct code.</p>
-<p>Run the validation script as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sh ./validate.sh
-</pre></div>
-</div>
-<p>and check its feedback. (That script may not run on all platforms.)</p>
+<p>There is another file <strong>parse.c</strong> that will open the contents of the binary file and print out a <strong>csv</strong> file. Use it to compare the output with your original file from the previous exercise. The <strong>parse.c</strong> just keeps reading bunches of 3 double values until it reaches the end, so there is no need to output the number of stress values at the start of the output file.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -239,7 +206,7 @@ jump pages forward and backward, or move to any specific line.  Press <code clas
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="assignment_CS2.html" class="btn btn-neutral float-left" title="C: Assignments Session 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="assignment_C3.html" class="btn btn-neutral float-right" title="C: Assignments Session 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="git.html" class="btn btn-neutral float-right" title="Git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

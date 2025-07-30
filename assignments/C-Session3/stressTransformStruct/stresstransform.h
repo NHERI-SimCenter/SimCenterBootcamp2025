@@ -3,9 +3,9 @@
 
 
 // DEFINE S typedef struct STRESS ...
-...
+// ...
 
-void StressTransform(STRESS s, STRESS *sp, double theta);
+void StressTransform(double sigx, double sigy, double tau, double *sigxp, double *sigyp, double *taup, double theta);
 
 #endif
 
