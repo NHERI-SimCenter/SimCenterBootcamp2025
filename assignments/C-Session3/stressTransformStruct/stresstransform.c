@@ -4,12 +4,6 @@
 
 #include "stresstransform.h"
 
-// 
-// check out the new function header:
-// ... much more compact
-// ... much easier to adapt to 3d states of stress (just change STRESS)
-//
-
 void StressTransform(double sigx,
 		     double sigy,
 		     double tau,
