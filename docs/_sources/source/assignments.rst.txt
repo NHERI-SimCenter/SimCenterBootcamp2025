@@ -30,6 +30,7 @@ Each assignment typically includes one or more of the following.
     # assignment_C3    
     # assignment_C2_solution
     #assignment_C3
+    assignment_CS4    
     #assignment_C4
     # assignment_C4_solution
     # assignment_C5    
@@ -37,6 +38,6 @@ Each assignment typically includes one or more of the following.
     #assignment_day1
     #assignment_day2
     #assignment_day3
-    #ssignment_day4
+    ssignment_day4
     #assignment_day5
 

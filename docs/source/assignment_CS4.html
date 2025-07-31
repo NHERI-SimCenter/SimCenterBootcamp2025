@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C: Assignments Session 3 &mdash; Programming Bootcamp 2025  documentation</title>
+  <title>C++: Assignments &mdash; Programming Bootcamp 2025  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=079b110e" />
@@ -20,7 +20,9 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Git" href="git.html" />
+    <link rel="prev" title="C: Assignments Session 3" href="assignment_CS3.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,11 +45,21 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setupInstructions.html">Setup Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lecture_videos.html">Self-Study Videos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments.html">Assignments</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="assignments.html">Assignments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="assignment_C1.html">C: Session 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignment_CS2.html">C: Assignments Session 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignment_CS3.html">C: Assignments Session 3</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">C++: Assignments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#problem-1-adding-a-coloredshape">Problem 1: Adding a ColoredShape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-2-an-engineering-vector-class-requires-you-to-finish-off">Problem 2: An engineering Vector Class requires you to finish off</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cmake.html">Cmake</a></li>
@@ -70,9 +82,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">C: Assignments Session 3</li>
+          <li class="breadcrumb-item"><a href="assignments.html">Assignments</a></li>
+      <li class="breadcrumb-item active">C++: Assignments</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/source/assignment_C3.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/source/assignment_CS4.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -80,117 +93,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="c-assignments-session-3">
-<h1>C: Assignments Session 3<a class="headerlink" href="#c-assignments-session-3" title="Link to this heading"></a></h1>
-<p>More problems for you to tackle.</p>
-<section id="problem-2-using-structures">
-<h2>Problem 2: Using structures<a class="headerlink" href="#problem-2-using-structures" title="Link to this heading"></a></h2>
-<p>The implementation of <code class="code docutils literal notranslate"><span class="pre">StressTransform()</span></code> was intentionally done a bit clumsy, just the way a beginner might
-write it. Your task in this exercise is to create a structure</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
-        <span class="n">double</span> <span class="n">sigx</span><span class="p">;</span>
-        <span class="n">double</span> <span class="n">sigy</span><span class="p">;</span>
-        <span class="n">double</span> <span class="n">tau</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">STRESS</span> <span class="p">;</span>
-</pre></div>
-</div>
-<p>and modify the code from the previous exercise to utilize the much easier to read data structure provided
-by this <code class="code docutils literal notranslate"><span class="pre">struct</span></code>.  Use the code skeleton provided in <strong>/assignments/C_Day2/stressTransformationStruct</strong> to develop that
-code.  The included <code class="code docutils literal notranslate"><span class="pre">CMakeList.txt</span></code> shall be used to compile your code.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Your modified <code class="code docutils literal notranslate"><span class="pre">StressTransform(...)</span></code> will require a pointer to a <code class="code docutils literal notranslate"><span class="pre">STRESS</span></code> type object.  The
-way to achieve that in an efficient manner is to use a <code class="code docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">struct</span> <span class="pre">{...}</span> <span class="pre">STRESS</span> <span class="pre">;</span></code>.</p>
-<p>In addition, inside the function that receives the pointer to a structure, assigning a new value to
-entries in such a structure requires the syntax</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">StressTransform</span><span class="p">(</span><span class="n">STRESS</span> <span class="n">stressIn</span><span class="p">,</span> <span class="n">STRESS</span> <span class="o">*</span><span class="n">stressOut</span><span class="p">,</span> <span class="o">....</span><span class="p">)</span> <span class="p">{</span>
-  <span class="o">...</span>
-  <span class="n">stressIn</span><span class="o">-&gt;</span><span class="n">sigx</span> <span class="o">=</span> <span class="o">...</span> <span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>This replaces the form</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">sigx</span> <span class="o">=</span> <span class="o">...</span> <span class="p">;</span>
-</pre></div>
-</div>
-<p>used for scalar-valued arguments.</p>
-</div>
-</section>
-<section id="problem-1-lets-switch-to-c-syntax">
-<h2>Problem 1: Lets switch to C++ syntax<a class="headerlink" href="#problem-1-lets-switch-to-c-syntax" title="Link to this heading"></a></h2>
-<p>Navigate to <strong>/code/c++/ExerciseDay3/ex1/</strong> to find the code for this C++ exerise. This code is the solution to yesterdays last assignment. It compiles with both a <strong>C</strong> and a <strong>C++</strong> compiler. The task is to replace the standard C lib functions for memory and output, e.g functions like malloc(), with the standard C++ functions, e.g. new().</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>
-<span class="linenos"> 2</span><span class="c1">// program to read values from a file, each file a csv list of int and two double</span>
-<span class="linenos"> 3</span><span class="c1">// written: fmk</span>
-<span class="linenos"> 4</span><span class="c1">//</span>
-<span class="linenos"> 5</span><span class="c1">// code is written using C language, rewrite using C++ language</span>
-<span class="linenos"> 6</span><span class="c1">//</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="linenos"> 9</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">14</span><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR correct usage appName inputFile</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="linenos">15</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-<span class="linenos">16</span><span class="w">  </span><span class="p">}</span>
-<span class="linenos">17</span><span class="w">  </span>
-<span class="linenos">18</span><span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">filePtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"> </span>
-<span class="linenos">19</span>
-<span class="linenos">20</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">21</span><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">float1</span><span class="p">,</span><span class="w"> </span><span class="n">float2</span><span class="p">;</span>
-<span class="linenos">22</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">maxVectorSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-<span class="linenos">23</span><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">vector1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">maxVectorSize</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
-<span class="linenos">24</span><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">vector2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">maxVectorSize</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span><span class="w">  </span>
-<span class="linenos">25</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">vectorSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">26</span><span class="w">  </span>
-<span class="linenos">27</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fscanf</span><span class="p">(</span><span class="n">filePtr</span><span class="p">,</span><span class="s">&quot;%d, %f, %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">float1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">float2</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">28</span><span class="w">    </span><span class="n">vector1</span><span class="p">[</span><span class="n">vectorSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">float1</span><span class="p">;</span>
-<span class="linenos">29</span><span class="w">    </span><span class="n">vector2</span><span class="p">[</span><span class="n">vectorSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">float2</span><span class="p">;</span>
-<span class="linenos">30</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %f, %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">vector2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">vector1</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="linenos">31</span><span class="w">    </span><span class="n">vectorSize</span><span class="o">++</span><span class="p">;</span>
-<span class="linenos">32</span>
-<span class="linenos">33</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vectorSize</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">maxVectorSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">34</span><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">maxVectorSize</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
-<span class="linenos">35</span><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">maxVectorSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="linenos">36</span><span class="w">         </span><span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector1</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="linenos">37</span><span class="w">      </span><span class="n">free</span><span class="p">(</span><span class="n">vector1</span><span class="p">);</span>
-<span class="linenos">38</span><span class="w">      </span><span class="n">vector1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
-<span class="linenos">39</span>
-<span class="linenos">40</span><span class="w">      </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">maxVectorSize</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
-<span class="linenos">41</span><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">maxVectorSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="linenos">42</span><span class="w">         </span><span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector2</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="linenos">43</span><span class="w">      </span><span class="n">free</span><span class="p">(</span><span class="n">vector2</span><span class="p">);</span>
-<span class="linenos">44</span><span class="w">      </span><span class="n">vector2</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">tmp</span><span class="p">;</span><span class="w">      </span>
-<span class="linenos">45</span>
-<span class="linenos">46</span><span class="w">      </span><span class="n">maxVectorSize</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="linenos">47</span><span class="w">    </span><span class="p">}</span>
-<span class="linenos">48</span><span class="w">  </span><span class="p">}</span>
-<span class="linenos">49</span>
-<span class="linenos">50</span><span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">filePtr</span><span class="p">);</span><span class="w">  </span>
-<span class="linenos">51</span><span class="p">}</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is no CmakeLists.txt file. To compile you must invoke the <strong>C++</strong> compiler directly, which is invoked from the terminal using the following to invoke the Intel C++ compiler:</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ icpc file3.cpp
-</pre></div>
-</div>
-</div></blockquote>
-<p>or the following to invoke the GNU C++ compiler</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ g++ file3.cpp
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-</section>
-<section id="problem-2-adding-a-coloredshape">
-<h2>Problem 2: Adding a ColoredShape<a class="headerlink" href="#problem-2-adding-a-coloredshape" title="Link to this heading"></a></h2>
-<p>Navigate to <strong>/code/c++/ExerciseDay3/ex2/</strong> to find the code for the C++ example presented in todays video. You are asked to create another shape of your choosing and add to the code base. A similar example was perfomed during the video.</p>
+  <section id="c-assignments">
+<h1>C++: Assignments<a class="headerlink" href="#c-assignments" title="Link to this heading"></a></h1>
+<p>Today we play with C++</p>
+<section id="problem-1-adding-a-coloredshape">
+<h2>Problem 1: Adding a ColoredShape<a class="headerlink" href="#problem-1-adding-a-coloredshape" title="Link to this heading"></a></h2>
+<p>Navigate to <strong>/code/c++/ExerciseDay3/shapes/</strong> to find the code for the C++ example presented in todays video. You are asked to create another shape of your choosing and add to the code base. A similar example was perfomed during the video.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>When starting a new <strong>C++</strong> class it is usual for developers to start by copying the <strong>.h</strong> and <strong>.cpp</strong> file of an existing working class that is similar to have the name of the new class they want. Then they open the new class and make isssue a global replacement to replace old class name with new name. This way they start with a working class. Then they would go into new class and start making modifications.</p>
@@ -229,8 +137,8 @@ $ make
 </div>
 </div>
 </section>
-<section id="problem-3-an-engineering-vector-class-requires-you-to-finish-off">
-<h2>Problem 3: An engineering Vector Class requires you to finish off<a class="headerlink" href="#problem-3-an-engineering-vector-class-requires-you-to-finish-off" title="Link to this heading"></a></h2>
+<section id="problem-2-an-engineering-vector-class-requires-you-to-finish-off">
+<h2>Problem 2: An engineering Vector Class requires you to finish off<a class="headerlink" href="#problem-2-an-engineering-vector-class-requires-you-to-finish-off" title="Link to this heading"></a></h2>
 <p>Navigate to <strong>/code/c++/ExerciseDay3/ex3/</strong> to find the partially completed code for a C++ Vector class. You are to finish it and test it. The directory contains a header file <strong>Vector.h</strong>,  an implementation file <strong>Vector.cpp</strong>, a <strong>main.cpp</strong> to test with and a <strong>CMakeFilesList.txt</strong> file for building and compiling.</p>
 <p>The header file Vector.h:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#ifndef _VECTOR</span>
@@ -391,7 +299,10 @@ $ make
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="assignment_CS3.html" class="btn btn-neutral float-left" title="C: Assignments Session 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="git.html" class="btn btn-neutral float-right" title="Git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
