@@ -8,18 +8,7 @@ Vector::Vector(int sz)
   data = 0; // PROVIDE CODE
 }
 
-Vector::~Vector()
-{
-  if (data != 0)
-    ; // PROVIDE CODE
-}
-
 // some methods
-int 
-Vector::Size(void) const
-{
-  return size;
-}
 
 void 
 Vector::zero(void)
@@ -86,11 +75,6 @@ Vector::operator+=(double val)
   // PROVIDE CODE
 }
 
-void 
-Vector::operator+=(const Vector &other)
-{
-  // PROVIDE CODE
-}
 
 double 
 Vector::operator()(int x) const
@@ -109,3 +93,4 @@ Vector::operator()(int x)
   // PROVIDE CODE
 }
 
+// PROVIDE CODE for Missing Definitions
