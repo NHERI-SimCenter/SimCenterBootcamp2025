@@ -1,6 +1,6 @@
 
-C: Assignments Day 5
-====================
+Parallel: Assignments Day 5
+===========================
 
 Problem 1: Parallelize **normVector.c** using **OpenMP**
 --------------------------------------------------------
